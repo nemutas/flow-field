@@ -14,7 +14,7 @@ void main() {
 
   vec2 pos = prev.xy;
 
-  vec2 distortion = vec2(8.0, 10.0) + sin(uTime * 0.5) * 0.1;
+  vec2 distortion = vec2(8.0, 10.0) + sin(uTime * 0.1) * 0.3;
 
   vec2 velo;
   velo.x = snoise(vec2(sin(pos.x + vUv.x * 0.1 + PI * 0.5), sin(pos.y + vUv.y * 0.1 - PI * 0.5)) * distortion);
@@ -22,7 +22,7 @@ void main() {
 
   pos += velo * 0.003 + (vUv.xy + 0.5) * 0.002;
 
-  if (distance(pos, prev.xy) < 0.0001) {
+  if (distance(pos, prev.xy) < 0.001) {
     pos.xy += 0.001;
   }
 
